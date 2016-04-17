@@ -37,7 +37,7 @@ architecture behave of InputMixer is
 
 	component FIFO is
 		generic(
-			constant DATA_WIDTH  : positive := 2;
+			constant DATA_WIDTH : positive := 2;
 			constant FIFO_DEPTH	: positive := 256 );
 		port( 
 			CLK		: in  STD_LOGIC;
@@ -46,8 +46,8 @@ architecture behave of InputMixer is
 			DataIn	: in  SIGNED (DATA_WIDTH - 1 downto 0);
 			ReadEn	: in  STD_LOGIC;
 			DataOut	: out SIGNED (DATA_WIDTH - 1 downto 0);
-			Empty		: out STD_LOGIC;
-			Full		: out STD_LOGIC );
+			Empty	: out STD_LOGIC;
+			Full	: out STD_LOGIC );
 	end component;
 	
 	component delay is
@@ -156,19 +156,19 @@ port map (
 	 iClk_50 	=> Clock_50,
 	 AudMclk 	=> AUD_XCK,
 	 Init 		=> not Key(3),				-- This is to initialize the Audio codec
-	 I2C_Sclk 	=> I2C_SCLK,					-- CDC Reg initiation serial interface
-	 I2C_Sdat 	=> I2C_SDAT,					-- CDC Reg initiation serial interface
-	 Bclk 		=> AUD_BCLK,					-- CDC audio dout clk
-	 AdcLrc 		=> AUD_ADCLRCK,				-- A/D Channel select signal
-	 DacLrc 		=> AUD_DACLRCK,				-- D/A Channel select signal
-	 AdcDat 		=> AUD_ADCDAT,
-	 DacDat 		=> AUD_DACDAT,
-	 SamClk 		=> AuSamClk, 					-- Sampling CLK
+	 I2C_Sclk 	=> I2C_SCLK,				-- CDC Reg initiation serial interface
+	 I2C_Sdat 	=> I2C_SDAT,				-- CDC Reg initiation serial interface
+	 Bclk 		=> AUD_BCLK,				-- CDC audio dout clk
+	 AdcLrc 	=> AUD_ADCLRCK,				-- A/D Channel select signal
+	 DacLrc 	=> AUD_DACLRCK,				-- D/A Channel select signal
+	 AdcDat 	=> AUD_ADCDAT,
+	 DacDat 	=> AUD_DACDAT,
+	 SamClk 	=> AuSamClk, 				-- Sampling CLK
 	 
 	 AudioOutL 	=> myAudioOutL,				-- Outgoing  audio samples
 	 AudioOutR 	=> myAudioOutR,				-- Outgoing  audio samples
-	 AudioInL 	=> myAudioInL,					-- Incomming audio samples
-	 AudioInR 	=> myAudioInR					-- Incomming audio samples
+	 AudioInL 	=> myAudioInL,				-- Incomming audio samples
+	 AudioInR 	=> myAudioInR				-- Incomming audio samples
 	 
  );
  
